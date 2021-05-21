@@ -9,7 +9,8 @@
           <div class="card-title mt-3 mb-0" v-if="state.weather.current">
             <h2 class="city m-0">{{state.weather.timezone.slice(8)}}</h2>
             <h1 class="m-0 text-white"><b>{{state.weather.current.temp.toFixed(0)}}</b>&deg;F</h1>
-            <p class="mt-4 text-white date-main"> <em>{{Date().slice(4,15)}}</em></p>
+            <h3 class="mt-1 mb-0 day"> <em>{{Date().slice(0,3)}}</em></h3>
+            <p class="mt-1 text-white date-main"> <em>{{Date().slice(4,15)}}</em></p>
           </div>
           <div class="card-body text-left" v-if="state.weather.current">
             <div class="row">
