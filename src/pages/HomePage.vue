@@ -36,7 +36,7 @@
         </div>
       </div>
     </div>
-    <div class="row justify-content-center mt-5">
+    <div class="row justify-content-center mt-5 mb-3">
       <div class="col-2">
         <div class="card cardSmall" v-if="state.weather.daily">
           <p class="mb-0"><b>{{Date().slice(0,3)}}</b></p>
@@ -240,6 +240,10 @@ export default {
   box-shadow: 2px 6px 15px rgb(83, 83, 83);
   background: rgba(50, 190, 233, 0.45);
   border-radius: 40px;
+}
+.day{
+  color: white;
+  -webkit-text-stroke: 1px rgb(119, 119, 119);
 }
 .rain{
   color: rgb(15, 76, 241);
