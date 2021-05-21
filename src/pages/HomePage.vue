@@ -229,7 +229,7 @@ export default {
   
 // }
 .header-text{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Nunito', sans-serif;
   color: white;
 }
 .city{
@@ -240,10 +240,12 @@ export default {
   box-shadow: 2px 6px 15px rgb(83, 83, 83);
   background: rgba(50, 190, 233, 0.45);
   border-radius: 40px;
+  
 }
 .day{
   color: white;
   -webkit-text-stroke: 1px rgb(119, 119, 119);
+  
 }
 .rain{
   color: rgb(15, 76, 241);
@@ -262,6 +264,7 @@ export default {
   box-shadow: 1px 4px 10px rgb(78, 99, 131);
   background: rgba(255, 255, 255, 0.33);
   border-radius: 5px;
+  font-family: 'Nunito', sans-serif;
 }
 .high{
   color: red;
