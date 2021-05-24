@@ -3,9 +3,9 @@
     <div class="row justify-content-center mt-4">
       <div class="col-6 header-text">
       <h1 class="mt-5 pl-5">Todays Weather Forecast:</h1>
-        <h4>Check out today's</h4>
+        <h4 class="mt-5 pl-5">Check out today's</h4>
         <router-link class="link" :to="{ name: 'HourlyPage'}" >
-          <h4>HOURLY Forecast</h4>
+          <h4 class="pl-5">HOURLY Forecast</h4>
         </router-link>
       </div>
       <div class="col-6">
@@ -275,5 +275,8 @@ export default {
 }
 .low {
   color: blue;
+}
+.link{
+  color: black;
 }
 </style>

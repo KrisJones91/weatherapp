@@ -9,20 +9,19 @@
         </div>
         
     </div>
-    <div class="row">
+    <div class="row py-3">
         <div class="col-4">
-            <div class="card card-1" v-if="state.weather.hourly">
+            <div class="card card-1" v-if="state.weather.hourly[0]">
                 <div class="card-header text-center">
-                    <h4>10:00am</h4>
+                    <h4>Current Hour</h4>
                 </div>
-                <div class="card-body">
+                <div class="card-body text-center">
                     <p class="mb-0">Temp: <b>{{state.weather.hourly[0].temp.toFixed()}}</b>&deg;F</p>
                     <p class="mb-0">Feels Like: <b>{{state.weather.hourly[0].feels_like.toFixed()}}</b>&deg;F</p>
                     <p class="mb-0">Humidity: <b>{{state.weather.hourly[0].humidity}}</b>%</p> 
                     <p class="mb-0">UV Index: <b>{{state.weather.hourly[0].uvi}}</b>%</p> 
 
                 </div>
-                
             </div>
         </div>
     </div>
@@ -41,7 +40,8 @@ name: 'HourlyPage',
 setup(){
     const route = useRoute()
     const state = reactive({
-        weather: computed(() => AppState.weather)
+        weather: computed(() => AppState.weather),
+        time: weather.hourly
     })
     onMounted(async() => {
         await weatherService.getWeather(route.params.current)
@@ -55,7 +55,7 @@ setup(){
         let m = date.getMinutes();
         let s = date.getSeconds();
         if (h > 12) {
-            h = h - 12;
+            // h = h - 12;
         }
         if (h == 0) {
             h = 12;
@@ -68,8 +68,17 @@ setup(){
         }
         let time = h + ":" + m + ":" + s;
         return time
-
         }
+        // loop(){
+        //     let hours = state.weather.hourly
+        //     for(let i = 0; i < hours; i++){
+        //         let timing = hours[i]
+        //         return timing
+        //     }
+        //     return hours
+        // }
+
+
     }
 }
 }
