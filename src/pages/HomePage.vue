@@ -3,6 +3,10 @@
     <div class="row justify-content-center mt-4">
       <div class="col-6 header-text">
       <h1 class="mt-5 pl-5">Todays Weather Forecast:</h1>
+        <h4>Check out today's</h4>
+        <router-link class="link" :to="{ name: 'HourlyPage'}" >
+          <h4>HOURLY Forecast</h4>
+        </router-link>
       </div>
       <div class="col-6">
         <div class="card maincard">

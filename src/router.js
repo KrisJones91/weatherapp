@@ -17,11 +17,17 @@ const routes = [
     component: loadPage('AboutPage')
   },
   {
+    path: '/hourlypage',
+    name: 'HourlyPage',
+    component: loadPage('HourlyPage')
+  },
+  {
     path: '/account',
     name: 'Account',
     component: loadPage('AccountPage'),
     beforeEnter: authGuard
   }
+
 ]
 
 const router = createRouter({
