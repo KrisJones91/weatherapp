@@ -11,13 +11,15 @@
     </div>
     <div class="row">
         <div class="col-4">
-            <div class="card" v-if="state.weather.hourly">
+            <div class="card card-1" v-if="state.weather.hourly">
                 <div class="card-header text-center">
                     <h4>10:00am</h4>
                 </div>
                 <div class="card-body">
-                    <p>Temp: <b>{{state.weather.hourly[0].temp.toFixed()}}</b>&deg;F</p>
-                    <p>Feels Like: <b>{{state.weather.hourly[0].feels_like.toFixed()}}</b>&deg;F</p>
+                    <p class="mb-0">Temp: <b>{{state.weather.hourly[0].temp.toFixed()}}</b>&deg;F</p>
+                    <p class="mb-0">Feels Like: <b>{{state.weather.hourly[0].feels_like.toFixed()}}</b>&deg;F</p>
+                    <p class="mb-0">Humidity: <b>{{state.weather.hourly[0].humidity}}</b>%</p> 
+                    <p class="mb-0">UV Index: <b>{{state.weather.hourly[0].uvi}}</b>%</p> 
 
                 </div>
                 
@@ -47,29 +49,27 @@ setup(){
     return{
         state,
         route,
-        
-                    time() {
-                        let date = new Date()
-                        let h = date.getHours();
-                        let m = date.getMinutes();
-                        let s = date.getSeconds();
+      time() {
+        let date = new Date()
+        let h = date.getHours();
+        let m = date.getMinutes();
+        let s = date.getSeconds();
+        if (h > 12) {
+            h = h - 12;
+        }
+        if (h == 0) {
+            h = 12;
+        }
+        if (m < 10) {
+            m = '0' + m;
+        }
+        if (s < 10) {
+            s = '0' + s;
+        }
+        let time = h + ":" + m + ":" + s;
+        return time
 
-                        if (h > 12) {
-                            h = h - 12;
-                        }
-                        if (h == 0) {
-                            h = 12;
-                        }
-                        if (m < 10) {
-                            m = '0' + m;
-                        }
-                        if (s < 10) {
-                            s = '0' + s;
-                        }
-                        let time = h + ":" + m + ":" + s;
-                        return time
-
-                    }
+        }
     }
 }
 }
