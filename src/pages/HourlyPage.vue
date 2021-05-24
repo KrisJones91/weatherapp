@@ -1,12 +1,21 @@
 <template>
 <div class="hourlypage container-fluid">
-    <div class="row">
-         <h1>Hourly Page</h1>
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <h1>Hourly Page</h1>
+        </div>
+        <div class="col-3">
+            <h2 id="clock">{{time().slice(0,5)}}AM</h2>
+        </div>
+        
     </div>
     <div class="row">
         <div class="col">
-            <div class="card">
-                <p>{{state.weather.daily[0].temp}}</p>
+            <div class="card" v-if="state.weather.hourly">
+                <div class="card-top">
+                    <h4></h4>
+                </div>
+                <p>{{state.weather.hourly[0].temp}}</p>
             </div>
         </div>
     </div>
@@ -32,7 +41,30 @@ setup(){
     })
     return{
         state,
-        route
+        route,
+        
+                    time() {
+                        let date = new Date()
+                        let h = date.getHours();
+                        let m = date.getMinutes();
+                        let s = date.getSeconds();
+
+                        if (h > 12) {
+                            h = h - 12;
+                        }
+                        if (h == 0) {
+                            h = 12;
+                        }
+                        if (m < 10) {
+                            m = '0' + m;
+                        }
+                        if (s < 10) {
+                            s = '0' + s;
+                        }
+                        let time = h + ":" + m + ":" + s;
+                        return time
+
+                    }
     }
 }
 }
