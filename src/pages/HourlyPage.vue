@@ -40,8 +40,7 @@ name: 'HourlyPage',
 setup(){
     const route = useRoute()
     const state = reactive({
-        weather: computed(() => AppState.weather),
-        time: weather.hourly
+        weather: computed(() => AppState.weather)
     })
     onMounted(async() => {
         await weatherService.getWeather(route.params.current)
