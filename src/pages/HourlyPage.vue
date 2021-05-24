@@ -1,6 +1,15 @@
 <template>
-<div class="hourlypage">
-  <h1>Hourly Page</h1>
+<div class="hourlypage container-fluid">
+    <div class="row">
+         <h1>Hourly Page</h1>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <p>{{state.weather.daily[0].temp}}</p>
+            </div>
+        </div>
+    </div>
 
 </div>
 </template>
