@@ -6,8 +6,18 @@
 </template>
 
 <script>
+import { reactive } from '@vue/reactivity'
+import { useRoute } from 'vue-router'
+import { computed } from '@vue/runtime-core'
+import { AppState } from '../AppState'
 export default {
-name: 'HourlyPage'
+name: 'HourlyPage',
+setup(){
+    const route = useRoute()
+    const state = reactive({
+        weather: computed(() => AppState.weather)
+    })
+}
 }
 </script>
 
